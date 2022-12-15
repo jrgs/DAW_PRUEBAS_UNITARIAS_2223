@@ -40,7 +40,7 @@
             // txtSaldo
             // 
             this.txtSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaldo.Location = new System.Drawing.Point(195, 48);
+            this.txtSaldo.Location = new System.Drawing.Point(268, 48);
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.ReadOnly = true;
             this.txtSaldo.Size = new System.Drawing.Size(274, 44);
@@ -49,7 +49,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(195, 138);
+            this.txtCantidad.Location = new System.Drawing.Point(327, 145);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(274, 44);
             this.txtCantidad.TabIndex = 1;
@@ -60,9 +60,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 37);
+            this.label1.Size = new System.Drawing.Size(237, 37);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Saldo:";
+            this.label1.Text = "Saldo FVB 1-Y:";
             // 
             // label2
             // 
@@ -70,9 +70,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(25, 145);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 37);
+            this.label2.Size = new System.Drawing.Size(284, 37);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Cantidad:";
+            this.label2.Text = "Cantidad FVB 1-Y:";
             // 
             // radioButton1
             // 
@@ -103,7 +103,7 @@
             // btOperar
             // 
             this.btOperar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOperar.Location = new System.Drawing.Point(528, 87);
+            this.btOperar.Location = new System.Drawing.Point(554, 55);
             this.btOperar.Name = "btOperar";
             this.btOperar.Size = new System.Drawing.Size(183, 73);
             this.btOperar.TabIndex = 6;

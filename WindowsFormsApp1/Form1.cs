@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
 
         private bool realizarReintegro(double cantidad) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
+            if (cantidad > 0 && saldo >= cantidad) {
                 saldo -= cantidad;
                 return true;
             }
@@ -31,17 +31,20 @@ namespace WindowsFormsApp1
         }
 
         private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
+            if (radioButton1.Checked)
+                if (cantidad > 0)
                 saldo += cantidad;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            double cantidad = Convert.ToDouble(txtCantidad.Text); 
+            // Cogemos la cantidad del TextBox y la pasamos a número
+            
             if (cantidad < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
+            if (rbReintegro.Checked && cantidad>=0)
             {
                 if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
