@@ -31,24 +31,36 @@ namespace WindowsFormsApp1
         }
 
         private void realizarIngreso(double cantidadEmm1DAW2022) {
+
+
             if (cantidadEmm1DAW2022 > 0)
                 saldoEmm1DAW2022 += cantidadEmm1DAW2022;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidadEmmdaw2022 = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
-            if (cantidadEmmdaw2022 < 0) {
-                MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
-            }
-            if (rbReintegro.Checked)
+            if (rbIngreso.Checked || rbReintegro.Checked)
             {
-                if (realizarReintegro(cantidadEmmdaw2022) == false)  // No se ha podido completar la operación, saldo insuficiente?
-                    MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
+
+                double cantidadEmmdaw2022 = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+                if (cantidadEmmdaw2022 < 0)
+                {
+                    MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
+                }
+                if (rbReintegro.Checked)
+                {
+                    if (realizarReintegro(cantidadEmmdaw2022) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                        MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
+                }
+                else
+                    realizarIngreso(cantidadEmmdaw2022);
+                txtSaldo.Text = saldoEmm1DAW2022.ToString();
+
             }
             else
-                realizarIngreso(cantidadEmmdaw2022);
-            txtSaldo.Text = saldoEmm1DAW2022.ToString();
+                MessageBox.Show("Error, tiene que marcar si quiere ingresar o reintrego");
+            
         }
     }
 }
+
