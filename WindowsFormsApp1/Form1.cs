@@ -11,44 +11,52 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
-    {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+    {   //Incluyo mis iniciales y el curso
+        private double saldoDAM2223 = 1000;  // Saldo inicial de la cuenta, 1000€
 
         public Form1()
         {
+
             InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
+            
+            txtSaldo.Text = saldoDAM2223.ToString();
             txtCantidad.Text = "0";
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double cantidadDAM2223) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+            if (cantidadDAM2223 > 0 && saldoDAM2223 >= cantidadDAM2223) {
+                saldoDAM2223 -= cantidadDAM2223;
                 return true;
             }
             return false;
         }
 
-        private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                saldo += cantidad;
+        private void realizarIngreso(double cantidadDAM2223) {
+            if (cantidadDAM2223 > 0)
+                saldoDAM2223 += cantidadDAM2223;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
-            if (cantidad < 0) {
+            double cantidadDAM2223 = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            if (cantidadDAM2223 < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
             if (rbReintegro.Checked)
             {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                if ((realizarReintegro(cantidadDAM2223) == false) && cantidadDAM2223 < 0) 
+                    // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
             }
-            else
-                realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            else if (rbIngreso.Checked){
+                realizarIngreso(cantidadDAM2223);
+            }
+            else{
+                MessageBox.Show("Indique que operación desea realizar", "ATENCIÓN");
+            }
+      
+            txtSaldo.Text = saldoDAM2223.ToString();
         }
     }
 }
