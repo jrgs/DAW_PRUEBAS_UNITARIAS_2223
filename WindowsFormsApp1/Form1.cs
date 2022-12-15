@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
 
         private bool realizarReintegro(double cantidad) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
+            if (cantidad >= 0 && saldo > cantidad) {
                 saldo -= cantidad;
                 return true;
             }
@@ -41,14 +41,27 @@ namespace WindowsFormsApp1
             if (cantidad < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
-            {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
-                    MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
-            }
             else
-                realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            {
+                if (rbReintegro.Checked)
+                {
+                    if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                        MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
+                }
+                else
+                {
+                    if (radioButton1.Checked)
+                    {
+                        realizarIngreso(cantidad);
+                        MessageBox.Show("Has ingresado " + cantidad);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Elige una opción.");
+                    }
+                }
+                txtSaldo.Text = saldo.ToString();
+            }        
         }
     }
 }
