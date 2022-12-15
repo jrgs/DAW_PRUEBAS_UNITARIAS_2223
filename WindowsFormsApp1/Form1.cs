@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
 
         private bool realizarReintegro(double cantidadMTB) 
         {
-            if (cantidadMTB > 0 && saldoMTB > cantidadMTB) {
+            if (cantidadMTB > 0 && saldoMTB >= cantidadMTB) {
                 saldoMTB -= cantidadMTB;
                 return true;
             }
