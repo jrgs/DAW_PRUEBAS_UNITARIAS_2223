@@ -12,43 +12,53 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+        private double saldo_gag2223 = 1000;  // Saldo inicial de la cuenta, 1000€
 
         public Form1()
         {
             InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
+            txtSaldo.Text = saldo_gag2223.ToString();
             txtCantidad.Text = "0";
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double cantidad_gag2223)
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+            if (cantidad_gag2223 > 0 && saldo_gag2223 >= cantidad_gag2223) {
+                saldo_gag2223 -= cantidad_gag2223;
                 return true;
             }
             return false;
         }
 
-        private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                saldo += cantidad;
+        private void realizarIngreso(double cantidad_gag2223) {
+            if (cantidad_gag2223 > 0)
+                saldo_gag2223 += cantidad_gag2223;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
-            if (cantidad < 0) {
-                MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
+            double cantidad_gag2223 = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            if (cantidad_gag2223 < 0) {
+                MessageBox.Show("Cantidad no válida, sólo se admiten cantidades positivas.");
             }
             if (rbReintegro.Checked)
             {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                if (realizarReintegro(cantidad_gag2223) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
+                else
+                {
+                    txtSaldo.Text = saldo_gag2223.ToString();
+                }
+            }
+            else if (radioButton1.Checked)
+            {
+                realizarIngreso(cantidad_gag2223);
+                txtSaldo.Text = saldo_gag2223.ToString();
             }
             else
-                realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            {
+                MessageBox.Show("Debes seleccionar 'Ingreso' o 'Reintegro' para continuar.");
+            }
         }
     }
 }
