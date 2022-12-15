@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
 
         private bool realizarReintegro(double cantidadCNDV) 
         {
-            if (cantidadCNDV > 0 && saldoCNDV > cantidadCNDV) {
+            if (cantidadCNDV > 0 && saldoCNDV >= cantidadCNDV) {
                 saldoCNDV -= saldoCNDV;
                 return true;
             }
@@ -46,7 +46,9 @@ namespace WindowsFormsApp1
                 if (realizarReintegro(cantidadCNDV) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
             }
-            else
+
+
+            else 
                 realizarIngreso(cantidadCNDV);
             txtSaldo.Text = saldoCNDV.ToString();
         }
