@@ -12,43 +12,44 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+        private double saldoGP2223 = 1000;  // Saldo inicial de la cuenta, 1000€
 
         public Form1()
         {
             InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
+            txtSaldo.Text = saldoGP2223.ToString();
             txtCantidad.Text = "0";
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double cantidadGP2223) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+            if (cantidadGP2223 > 0 && saldoGP2223 >= cantidadGP2223) {
+              
+                saldoGP2223 -= cantidadGP2223;
                 return true;
             }
             return false;
         }
 
         private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                saldo += cantidad;
+            if (cantidad > 0 && radioButton1.Checked) //! Añado comprobación del Check
+                saldoGP2223 += cantidad;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidadGP2223 del TextBox y la pasamos a número
             if (cantidad < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
+            if (rbReintegro.Checked && cantidad > 0)
             {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldoGP2223 insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
             }
             else
                 realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            txtSaldo.Text = saldoGP2223.ToString();
         }
     }
 }
