@@ -12,43 +12,47 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+        private double saldoJPS2223 = 1000;  // saldoJPS2223 inicial de la cuenta, 1000€
 
         public Form1()
         {
+            
             InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
+            double saldoJPS2223 = 1000;
+            txtSaldo.Text = saldoJPS2223.ToString();
             txtCantidad.Text = "0";
+            
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double cantidadJPS2223) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+
+            if (cantidadJPS2223 > 0 && saldoJPS2223 >= cantidadJPS2223) {
+                saldoJPS2223 -= cantidadJPS2223;
                 return true;
             }
             return false;
         }
 
-        private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                saldo += cantidad;
+        private void realizarIngreso(double cantidadJPS2223) {
+            if (cantidadJPS2223 > 0)
+                saldoJPS2223 += cantidadJPS2223;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
-            if (cantidad < 0) {
-                MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
+            double cantidadJPS2223 = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            if (cantidadJPS2223 < 0) {
+                MessageBox.Show("Cantidad no válida, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
+            else if (rbReintegro.Checked)
             {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
-                    MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
+                if (realizarReintegro(cantidadJPS2223) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                    MessageBox.Show("No se ha podido realizar la operación (¿saldo insuficiente?)");
             }
             else
-                realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+                realizarIngreso(cantidadJPS2223);
+            txtSaldo.Text = saldoJPS2223.ToString();
         }
     }
 }
