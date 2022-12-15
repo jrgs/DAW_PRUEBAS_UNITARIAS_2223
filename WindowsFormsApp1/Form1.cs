@@ -41,21 +41,23 @@ namespace WindowsFormsApp1
             if (cantidadRIA2223 < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
-            {
-                if (realizarReintegro(cantidadRIA2223) == false)  // No se ha podido completar la operación, saldo insuficiente?
-                    MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
-            }
-            else if (rbIngreso.Checked)
-            {
-                realizarIngreso(cantidadRIA2223);
-                txtSaldo.Text = saldoRIA2223.ToString();
-            }
             else
             {
-                MessageBox.Show("No se ha podido realizar la operación, seleccione reintegro o ingreso.");
-            }
-                
+                if (rbReintegro.Checked)
+                {
+                    if (realizarReintegro(cantidadRIA2223) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                        MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
+                }
+                else if (rbIngreso.Checked)
+                {
+                    realizarIngreso(cantidadRIA2223);
+                    txtSaldo.Text = saldoRIA2223.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido realizar la operación, seleccione reintegro o ingreso.");
+                }
+            }      
         }
     }
 }
