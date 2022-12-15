@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             if (cantidadMTB < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
+            else if (rbReintegro.Checked)
             {
                 if (realizarReintegro(cantidadMTB) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
