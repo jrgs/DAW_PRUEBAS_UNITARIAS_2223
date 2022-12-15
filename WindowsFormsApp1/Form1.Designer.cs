@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+namespace WindowsFormsApp1
 {
     partial class Form1
     {
@@ -30,8 +30,8 @@
         {
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.CPM1DAWYSaldo = new System.Windows.Forms.Label();
+            this.CPM1DAWYCantidad = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rbReintegro = new System.Windows.Forms.RadioButton();
             this.btOperar = new System.Windows.Forms.Button();
@@ -54,25 +54,25 @@
             this.txtCantidad.Size = new System.Drawing.Size(274, 44);
             this.txtCantidad.TabIndex = 1;
             // 
-            // label1
+            // CPM1DAWYSaldo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Saldo:";
+            this.CPM1DAWYSaldo.AutoSize = true;
+            this.CPM1DAWYSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CPM1DAWYSaldo.Location = new System.Drawing.Point(25, 55);
+            this.CPM1DAWYSaldo.Name = "CPM1DAWYSaldo";
+            this.CPM1DAWYSaldo.Size = new System.Drawing.Size(108, 37);
+            this.CPM1DAWYSaldo.TabIndex = 2;
+            this.CPM1DAWYSaldo.Text = "Saldo:";
             // 
-            // label2
+            // CPM1DAWYCantidad
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Cantidad:";
+            this.CPM1DAWYCantidad.AutoSize = true;
+            this.CPM1DAWYCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CPM1DAWYCantidad.Location = new System.Drawing.Point(25, 145);
+            this.CPM1DAWYCantidad.Name = "CPM1DAWYCantidad";
+            this.CPM1DAWYCantidad.Size = new System.Drawing.Size(155, 37);
+            this.CPM1DAWYCantidad.TabIndex = 3;
+            this.CPM1DAWYCantidad.Text = "Cantidad:";
             // 
             // radioButton1
             // 
@@ -119,8 +119,8 @@
             this.Controls.Add(this.btOperar);
             this.Controls.Add(this.rbReintegro);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CPM1DAWYCantidad);
+            this.Controls.Add(this.CPM1DAWYSaldo);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtSaldo);
             this.Name = "Form1";
@@ -134,8 +134,8 @@
 
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label CPM1DAWYSaldo;
+        private System.Windows.Forms.Label CPM1DAWYCantidad;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rbReintegro;
         private System.Windows.Forms.Button btOperar;
