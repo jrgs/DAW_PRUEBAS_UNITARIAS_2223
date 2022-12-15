@@ -12,43 +12,51 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+        private double saldoLSF1DAW2223 = 1000;  // Saldo inicial de la cuenta, 1000€
 
         public Form1()
         {
             InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
+            txtSaldo.Text = saldoLSF1DAW2223.ToString();
             txtCantidad.Text = "0";
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double cantidadLSF1DAW2223) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+            if  (saldoLSF1DAW2223 >= cantidadLSF1DAW2223) {
+                saldoLSF1DAW2223 -= cantidadLSF1DAW2223;
                 return true;
             }
             return false;
         }
 
-        private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                saldo += cantidad;
+        private void realizarIngreso(double cantidadLSF1DAW2223) {
+                saldoLSF1DAW2223 += cantidadLSF1DAW2223;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
-            if (cantidad < 0) {
+            double cantidadLSF1DAW2223 = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            if (cantidadLSF1DAW2223 < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
-            if (rbReintegro.Checked)
+            else if (rbReintegro.Checked)
             {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                if (realizarReintegro(cantidadLSF1DAW2223) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
             }
+            else if (radioButton1.Checked)
+            {
+                realizarIngreso(cantidadLSF1DAW2223);
+                txtSaldo.Text = saldoLSF1DAW2223.ToString();
+            }
+
             else
-                realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            {
+                MessageBox.Show("Marque alguna de las dos opciones.");
+
+            }
+           
         }
     }
 }
