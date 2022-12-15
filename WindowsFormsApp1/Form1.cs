@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        //He realizado un revert porque había realizado un commit con un usuario de github que ya estaba logeado en mi ordenador. No sabía si al iniciar sesión con el mio se iba a reflejar como que era mio el commit. 
         private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
 
         public Form1()
