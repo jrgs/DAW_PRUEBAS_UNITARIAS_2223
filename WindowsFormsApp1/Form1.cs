@@ -12,43 +12,48 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+        private double saldoMTB = 1000;  // Saldo inicial de la cuenta, 1000€
 
         public Form1()
         {
             InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
+            txtSaldo.Text = saldoMTB.ToString();
             txtCantidad.Text = "0";
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double cantidadMTB) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+            if (cantidadMTB > 0 && saldoMTB > cantidadMTB) {
+                saldoMTB -= cantidadMTB;
                 return true;
             }
             return false;
         }
 
-        private void realizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                saldo += cantidad;
+        private void realizarIngreso(double cantidadMTB) {
+            if (cantidadMTB > 0)
+                saldoMTB += cantidadMTB;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
-            if (cantidad < 0) {
+            double cantidadMTB = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            if (cantidadMTB < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
             if (rbReintegro.Checked)
             {
-                if (realizarReintegro(cantidad) == false)  // No se ha podido completar la operación, saldo insuficiente?
+                if (realizarReintegro(cantidadMTB) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
             }
-            else
-                realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            else if(rbIngreso.Checked)
+                realizarIngreso(cantidadMTB);
+            txtSaldo.Text = saldoMTB.ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
