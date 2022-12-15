@@ -46,9 +46,16 @@ namespace WindowsFormsApp1
                 if (realizarReintegro(cantidadRIA2223) == false)  // No se ha podido completar la operación, saldo insuficiente?
                     MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
             }
-            else
+            else if (rbIngreso.Checked)
+            {
                 realizarIngreso(cantidadRIA2223);
-            txtSaldo.Text = saldoRIA2223.ToString();
+                txtSaldo.Text = saldoRIA2223.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido realizar la operación, seleccione reintegro o ingreso.");
+            }
+                
         }
     }
 }
