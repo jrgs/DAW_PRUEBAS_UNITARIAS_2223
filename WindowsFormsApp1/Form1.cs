@@ -12,32 +12,39 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private double saldo = 1000;  // Saldo inicial de la cuenta, 1000€
+        private 
+        double  Dcc=1000;  // Saldo inicial de la cuenta, 1000€
+        double curso2223;
+
 
         public Form1()
         {
-            InitializeComponent();
-            txtSaldo.Text = saldo.ToString();
-            txtCantidad.Text = "0";
+        InitializeComponent();
+            txtDcc.Text = Dcc.ToString();
+            txtCurso2223.Text = curso2223.ToString();
         }
 
-        private bool realizarReintegro(double cantidad) 
+        private bool realizarReintegro(double curso2223) 
         {
-            if (cantidad > 0 && saldo > cantidad) {
-                saldo -= cantidad;
+            if (curso2223 > 0 && Dcc > curso2223)
+            {
+                Dcc -= curso2223;
                 return true;
             }
-            return false;
+
+            else {
+                return false;
+            } 
         }
 
         private void realizarIngreso(double cantidad) {
             if (cantidad > 0)
-                saldo += cantidad;
+                Dcc += cantidad;
         }
 
         private void btOperar_Click(object sender, EventArgs e)
         {
-            double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
+            double cantidad = Convert.ToDouble(txtCurso2223.Text); // Cogemos la cantidad del TextBox y la pasamos a número
             if (cantidad < 0) {
                 MessageBox.Show("Cantidad no válidá, sólo se admiten cantidades positivas.");
             }
@@ -48,7 +55,7 @@ namespace WindowsFormsApp1
             }
             else
                 realizarIngreso(cantidad);
-            txtSaldo.Text = saldo.ToString();
+            txtDcc.Text = Dcc.ToString();
         }
     }
 }

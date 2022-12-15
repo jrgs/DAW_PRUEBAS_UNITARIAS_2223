@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtSaldo = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.txtDcc = new System.Windows.Forms.TextBox();
+            this.txtCurso2223 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -37,22 +37,22 @@
             this.btOperar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtSaldo
+            // txtDcc
             // 
-            this.txtSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaldo.Location = new System.Drawing.Point(195, 48);
-            this.txtSaldo.Name = "txtSaldo";
-            this.txtSaldo.ReadOnly = true;
-            this.txtSaldo.Size = new System.Drawing.Size(274, 44);
-            this.txtSaldo.TabIndex = 0;
+            this.txtDcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDcc.Location = new System.Drawing.Point(195, 48);
+            this.txtDcc.Name = "txtDcc";
+            this.txtDcc.ReadOnly = true;
+            this.txtDcc.Size = new System.Drawing.Size(274, 44);
+            this.txtDcc.TabIndex = 0;
             // 
-            // txtCantidad
+            // txtCurso2223
             // 
-            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(195, 138);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(274, 44);
-            this.txtCantidad.TabIndex = 1;
+            this.txtCurso2223.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurso2223.Location = new System.Drawing.Point(195, 138);
+            this.txtCurso2223.Name = "txtCurso2223";
+            this.txtCurso2223.Size = new System.Drawing.Size(274, 44);
+            this.txtCurso2223.TabIndex = 1;
             // 
             // label1
             // 
@@ -68,7 +68,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 145);
+            this.label2.Location = new System.Drawing.Point(5, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 37);
             this.label2.TabIndex = 3;
@@ -121,8 +121,8 @@
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCantidad);
-            this.Controls.Add(this.txtSaldo);
+            this.Controls.Add(this.txtCurso2223);
+            this.Controls.Add(this.txtDcc);
             this.Name = "Form1";
             this.Text = "La Banca Siempre Gana";
             this.ResumeLayout(false);
@@ -132,8 +132,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtSaldo;
-        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.TextBox txtDcc;
+        private System.Windows.Forms.TextBox txtCurso2223;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioButton1;
