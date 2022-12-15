@@ -32,7 +32,7 @@
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbIngresoDVS2223 = new System.Windows.Forms.RadioButton();
             this.rbReintegro = new System.Windows.Forms.RadioButton();
             this.btOperar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -74,18 +74,18 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Cantidad:";
             // 
-            // radioButton1
+            // rbIngresoDVS2223
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(79, 229);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(141, 41);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Ingreso";
-            this.radioButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbIngresoDVS2223.AutoSize = true;
+            this.rbIngresoDVS2223.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbIngresoDVS2223.Location = new System.Drawing.Point(79, 229);
+            this.rbIngresoDVS2223.Name = "rbIngresoDVS2223";
+            this.rbIngresoDVS2223.Size = new System.Drawing.Size(141, 41);
+            this.rbIngresoDVS2223.TabIndex = 4;
+            this.rbIngresoDVS2223.TabStop = true;
+            this.rbIngresoDVS2223.Text = "Ingreso";
+            this.rbIngresoDVS2223.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.rbIngresoDVS2223.UseVisualStyleBackColor = true;
             // 
             // rbReintegro
             // 
@@ -118,7 +118,7 @@
             this.ClientSize = new System.Drawing.Size(763, 324);
             this.Controls.Add(this.btOperar);
             this.Controls.Add(this.rbReintegro);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbIngresoDVS2223);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCantidad);
@@ -136,7 +136,7 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbIngresoDVS2223;
         private System.Windows.Forms.RadioButton rbReintegro;
         private System.Windows.Forms.Button btOperar;
     }
