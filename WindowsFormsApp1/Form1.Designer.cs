@@ -30,8 +30,8 @@
         {
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.FVB1Y = new System.Windows.Forms.Label();
+            this.fvby = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.rbReintegro = new System.Windows.Forms.RadioButton();
             this.btOperar = new System.Windows.Forms.Button();
@@ -54,25 +54,25 @@
             this.txtCantidad.Size = new System.Drawing.Size(274, 44);
             this.txtCantidad.TabIndex = 1;
             // 
-            // label1
+            // FVB1Y
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Saldo FVB 1-Y:";
+            this.FVB1Y.AutoSize = true;
+            this.FVB1Y.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FVB1Y.Location = new System.Drawing.Point(25, 55);
+            this.FVB1Y.Name = "FVB1Y";
+            this.FVB1Y.Size = new System.Drawing.Size(237, 37);
+            this.FVB1Y.TabIndex = 2;
+            this.FVB1Y.Text = "Saldo FVB 1-Y:";
             // 
-            // label2
+            // fvby
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(284, 37);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Cantidad FVB 1-Y:";
+            this.fvby.AutoSize = true;
+            this.fvby.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fvby.Location = new System.Drawing.Point(25, 145);
+            this.fvby.Name = "fvby";
+            this.fvby.Size = new System.Drawing.Size(284, 37);
+            this.fvby.TabIndex = 3;
+            this.fvby.Text = "Cantidad FVB 1-Y:";
             // 
             // radioButton1
             // 
@@ -119,8 +119,8 @@
             this.Controls.Add(this.btOperar);
             this.Controls.Add(this.rbReintegro);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.fvby);
+            this.Controls.Add(this.FVB1Y);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtSaldo);
             this.Name = "Form1";
@@ -134,8 +134,8 @@
 
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label FVB1Y;
+        private System.Windows.Forms.Label fvby;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton rbReintegro;
         private System.Windows.Forms.Button btOperar;
