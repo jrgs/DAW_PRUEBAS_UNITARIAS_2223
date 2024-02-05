@@ -13,8 +13,8 @@ namespace GestionBancariaAppNS
     public partial class GestionBancariaApp : Form
     {
         private double saldo;  
-        const int ERR_CANTIDAD_NO_VALIDA = 1;
-        const int ERR_SALDO_INSUFICIENTE = 2;
+        public const String ERR_CANTIDAD_NO_VALIDA = "Cantidad no valida CDJ2324";
+        public const String ERR_SALDO_INSUFICIENTE = "Saldo insuficiente";
 
         public GestionBancariaApp(double saldo = 0)
         {
@@ -32,17 +32,37 @@ namespace GestionBancariaAppNS
         public int RealizarReintegro(double cantidad) 
         {
             if (cantidad <= 0)
-                return ERR_CANTIDAD_NO_VALIDA;
+
+                //return ERR_CANTIDAD_NO_VALIDA;
+                //throw new ArgumentOutOfRangeException("la cantidad indicada no es válida");
+
+                throw new ArgumentOutOfRangeException(ERR_CANTIDAD_NO_VALIDA);
+
             if (saldo < cantidad)
-                return ERR_SALDO_INSUFICIENTE;
-            saldo += cantidad;
+
+                //return ERR_SALDO_INSUFICIENTE;
+                //throw new ArgumentOutOfRangeException("saldo insuficiente");
+
+                throw new ArgumentOutOfRangeException(ERR_SALDO_INSUFICIENTE);
+
+            saldo -= cantidad; //corrijo el error CDJ_2324
             return 0;
         }
 
         public int RealizarIngreso(double cantidad) {
-            if (cantidad > 0)
-                return ERR_CANTIDAD_NO_VALIDA;
-            saldo -= cantidad;
+
+            // if (cantidad > 0) return ERR_CANTIDAD_NO_VALIDA,
+            // el error se debe ejecutar si la cantidad <= 0 CDJ2324
+
+            if (cantidad <= 0)
+
+                //return ERR_CANTIDAD_NO_VALIDA;
+                //throw new ArgumentOutOfRangeException("la cantidad indicada no es válida");
+
+                throw new ArgumentOutOfRangeException(ERR_CANTIDAD_NO_VALIDA);
+
+            //saldo-=cantidad -> ERROR, la cantidad debe sumarse al saldo
+            saldo += cantidad;
             return 0;
         }
 
@@ -50,22 +70,29 @@ namespace GestionBancariaAppNS
         {
             double cantidad = Convert.ToDouble(txtCantidad.Text); // Cogemos la cantidad del TextBox y la pasamos a número
             if (rbReintegro.Checked)
-            {
-                int respuesta = RealizarReintegro(cantidad);
-                if (respuesta == ERR_SALDO_INSUFICIENTE)
-                    MessageBox.Show("No se ha podido realizar la operación (¿Saldo insuficiente?)");
-                else
-                if (respuesta == ERR_CANTIDAD_NO_VALIDA)
-                    MessageBox.Show("Cantidad no válida, sólo se admiten cantidades positivas.");
-                else
+            {//CDJ2324
+                try {
+                    RealizarReintegro(cantidad);
                     MessageBox.Show("Transacción realizada.");
+                } catch (Exception error){
+                    if (error.Message.Contains(ERR_SALDO_INSUFICIENTE))
+                        MessageBox.Show("No se ha podido realizar la operacion (¿Saldo insuficiente?)");
+                    else
+                        if (error.Message.Contains(ERR_CANTIDAD_NO_VALIDA))
+                        MessageBox.Show("Cantidad no valida, solo se admiten cantidades positivas");
+                }
+                    
 
             }
             else {
-                if (RealizarIngreso(cantidad) == ERR_CANTIDAD_NO_VALIDA)
-                    MessageBox.Show("Cantidad no válida, sólo se admiten cantidades positivas.");
-                else
-                    MessageBox.Show("Transacción realizada.");
+                try {
+                    RealizarIngreso(cantidad);
+                    MessageBox.Show("Transaccion realizada");
+                }catch (Exception error)
+                {
+                    if (error.Message.Contains(ERR_CANTIDAD_NO_VALIDA))
+                        MessageBox.Show("Cantidad no valida, solo se admiten cantidades positivas.");
+                }
             }
            txtSaldo.Text = ObtenerSaldo().ToString();
         }
