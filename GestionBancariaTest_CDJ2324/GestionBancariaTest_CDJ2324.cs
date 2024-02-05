@@ -10,50 +10,30 @@ namespace GestionBancariaTest_CDJ2324
         // VALIDAR REALIZAR REINTEGRO 
 
         [TestMethod]
-        public void validarReintegro()
+        [DataRow(1000,250,750)]
+        [DataRow(1000,1000,0)]
+        [DataRow(1000,1,999)]
+        [DataRow(1000,500,500)]
+        public void validarReintegro(double saldoInicial, double reintegro, double saldoEsperado)
         {
-            //preparacion del caso de prueba CDJ_2324
-            double saldoInicial = 1000;
-            double reintegro = 250;
-            double saldoEsperado = 750;
-
+            
             GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
 
             //Método a probar
             miApp.RealizarReintegro(reintegro);
 
-            //con Assert.AreEqual comprobamos que el valor saldoEsperado es igual a lo que se ha calculado con una presicion de 0.001
-            //si no es así, la prueba no se superará
-
             Assert.AreEqual(saldoEsperado, miApp.ObtenerSaldo(), 0.001, "Se produjo un error al realizar el reintegro, saldo" + "incorrecto.");
 
         }
-
-        // VALIDAR OBTENER SALDO
-
-        [TestMethod] //CDJ2324
-        public void validarObtenerSaldo()
-        {
-
-            GestionBancariaApp miApp = new GestionBancariaApp(1000);
-
-            double saldo = miApp.ObtenerSaldo();
-
-            Assert.AreEqual(1000, saldo);
-
-
-        }
-        //VALIDAR REALIZAR INGRESO
+        
+        // VALIDAR REALIZAR INGRESO
 
         [TestMethod]
-        
-        public void validarRealizarIngresoPositivo()
-        {
-            //valor límite + 1 -> cantidad == 1 CDJ2324
-            double saldoInicial = 1000;
-            double ingreso = 1;
-            double saldoEsperado = saldoInicial + ingreso;
-
+        [DataRow(1000,1,1001)]
+        [DataRow(1000,500,1500)]
+        [DataRow(1000,80,1080)]
+        public void validarRealizarIngresoPositivo(double saldoInicial, double ingreso, double saldoEsperado)
+        {//CDJ2324
             GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
 
             miApp.RealizarIngreso(ingreso);
@@ -65,12 +45,11 @@ namespace GestionBancariaTest_CDJ2324
         
         // VALIDAR REALIZAR INGRESO CANTIDAD NO VALIDA CDJ2324
         [TestMethod]
-        public void RealizarIngresoCantidadNoValida()
+        [DataRow(1000,0)]
+        [DataRow(1000,-1)]
+        [DataRow(1000,-50)]
+        public void RealizarIngresoCantidadNoValida(double saldoInicial, double ingreso)
         {
-            double saldoInicial = 1000;
-            double ingreso = -150;
-            double saldoEsperado= saldoInicial + ingreso;
-
             GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
             try
             {
@@ -87,12 +66,13 @@ namespace GestionBancariaTest_CDJ2324
        
         // VALIDAR REALIZAR REINTEGRO CANTIDAD NO VALIDA CDJ2324
         [TestMethod]
-        public void RealizarReintegroCantidadNoValida()
-        {
-            double saldoInicial = 1000;
-            double reintegro = -250;
-            double saldoFinal = saldoInicial - reintegro;
+        [DataRow(1000,-250)]
+        [DataRow(1000, 0)]
+        [DataRow(1000, -1)]
 
+        public void RealizarReintegroCantidadNoValida(double saldoInicial, double reintegro)
+        {
+            
             GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
             try { 
                 miApp.RealizarReintegro(reintegro);
@@ -105,12 +85,11 @@ namespace GestionBancariaTest_CDJ2324
         }
         // VALIDAR REALIZAR REINTEGRO SALDO INSUFICIENTE CDJ2324
         [TestMethod]
-        public void RealizarReintegroSaldoInsuficiente()
+        [DataRow(1000,1500)]
+        [DataRow(150,230)]
+        public void RealizarReintegroSaldoInsuficiente(double saldoInicial,double reintegro)
         {
-            double saldoInicial = 500;
-            double reintegro = 550;
-            double saldoFinal = saldoInicial - reintegro;
-
+            
             GestionBancariaApp miApp = new GestionBancariaApp(saldoInicial);
             try
             {
